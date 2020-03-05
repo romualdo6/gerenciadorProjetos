@@ -20,6 +20,9 @@ class Project extends Model implements Transformable
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = ['owner_id', 'client_id', 'name', 'description', 'due_date', 'progress', 'status'];
 
+    public function notes() {
+        return $this->hasMany(ProjectNote::class);
+    }
 }

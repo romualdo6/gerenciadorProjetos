@@ -10,7 +10,7 @@ use \Prettus\Validator\LaravelValidator;
  *
  * @package namespace App\Validators;
  */
-class ProjectValidator extends LaravelValidator
+class ProjectNoteValidator extends LaravelValidator
 {
     /**
      * Validation Rules
@@ -18,9 +18,8 @@ class ProjectValidator extends LaravelValidator
      * @var array
      */
     protected $rules = [
-        'owner_id' => 'required',
-        'client_id' => 'required',
-        'name' => 'required|email',
-        'description' => 'required'
+        'project_id' => 'required',
+        'title' => 'required',
+        'note' => 'required'
     ];
 }
