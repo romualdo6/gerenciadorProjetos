@@ -36,6 +36,9 @@ class ProjectController extends Controller
 
     public function show($id)
     {
+        if($this->repository->isOwner($id, )) {
+
+        }
         return $this->repository->find($id);
     }
 

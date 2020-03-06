@@ -26,13 +26,12 @@ class ProjectRepositoryEloquent extends BaseRepository implements ProjectReposit
     }
 
     /**
-    * Specify Validator class name
-    *
-    * @return mixed
-    */
+     * Specify Validator class name
+     *
+     * @return mixed
+     */
     public function validator()
     {
-
         return ProjectValidator::class;
     }
 
@@ -44,5 +43,13 @@ class ProjectRepositoryEloquent extends BaseRepository implements ProjectReposit
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
-    
+
+
+    public function isOwner($projectId, $userId)
+    {
+        if ($this->findWhere(['project_id' => $projectId, 'owner_id' => $userId])) {
+            return true;
+        }
+        return false;
+    }
 }
